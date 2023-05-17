@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Goblin Mike">
+    
+    <title>
+        
+            嵌入式OS思考题 |
+        
+        Goblin&#39;s Blog
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/avatar.jpg">
+    
+<link rel="stylesheet" href="/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/font/css/brands.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","favicon":"/images/avatar.jpg","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep Creative.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":false,"custom_label_list":["happy"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"version":"3.6.1"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original article title","author":"Original article author","link":"Original article link"}
+  </script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+               Goblin&#39;s Blog
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                LINKS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">LINKS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            <div class="article-title">
+                <span class="title-hover-animation">嵌入式OS思考题</span>
+            </div>
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/avatar.jpg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">Goblin Mike</span>
+                            
+                                <span class="author-label">happy</span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            
+<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        
+            <i class="fa-regular fa-calendar-plus"></i>&nbsp;
+        
+        <span class="pc">2023-05-08 19:09:11</span>
+        <span class="mobile">2023-05-08 19:09</span>
+    </span>
+    
+        <span class="article-update-date article-meta-item">
+        <i class="fas fa-file-pen"></i>&nbsp;
+        <span class="pc">2023-05-17 20:47:19</span>
+    </span>
+    
+    
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>7.3k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>25 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content keep-markdown-body">
+                
+
+                <h2 id="嵌入式操作系统思考题"><a href="#嵌入式操作系统思考题" class="headerlink" title="嵌入式操作系统思考题"></a>嵌入式操作系统思考题</h2><h4 id="第一组"><a href="#第一组" class="headerlink" title="第一组"></a>第一组</h4><blockquote>
+<p>什么是嵌入式系统？</p>
+</blockquote>
+<p>嵌入式系统是一种专门设计用于控制某些特定设备或系统的计算机系统。它通常被嵌入于某些特定产品或设备之中，用于控制、监控、管理和处理各种任务和功能，以满足特定的需求和要求。</p>
+<p>嵌入式系统通常具有以下特点：</p>
+<ul>
+<li><p>硬件开发和软件开发相结合，形成一体化的系统；</p>
+</li>
+<li><p>面向特定应用领域，并且系统资源非常有限；</p>
+</li>
+<li><p>通常需要高效、实时的响应能力，以满足复杂的控制和处理任务；</p>
+</li>
+</ul>
+<blockquote>
+<p>举例说明嵌入式系统应用情况。</p>
+</blockquote>
+<ol>
+<li>智能家居：智能家居系统是一种嵌入式系统，它可以控制家庭中的各种设备，如灯光、空调、电视、音响等，通过智能语音或手机APP进行控制，从而提高家居的舒适度和便利性。</li>
+<li>汽车控制系统：现代汽车中的控制系统都是嵌入式系统，包括发动机控制系统、制动系统、安全气囊系统等，这些系统可以实现自动驾驶、智能辅助驾驶、车辆诊断等功能，提高了汽车的安全性和性能。</li>
+<li>医疗设备：医疗设备中的嵌入式系统可以实现各种功能，如心电图仪、血压计、血糖仪等，这些设备可以帮助医生进行诊断和治疗，提高医疗质量和效率。</li>
+<li>工业自动化：工业自动化中的嵌入式系统可以控制各种机器和设备，如机床、机器人等，实现自动化生产，提高生产效率和质量。</li>
+</ol>
+<blockquote>
+<p>综述嵌入式系统领域发展情况。</p>
+</blockquote>
+<ol>
+<li>技术发展：随着芯片技术、通信技术、传感器技术等的不断发展，嵌入式系统的处理能力、通信速度、数据采集能力等方面得到了很大的提升，使得嵌入式系统在各个领域的应用更加广泛和深入。</li>
+<li>应用领域：嵌入式系统的应用领域越来越广泛，涉及到智能家居、智能交通、医疗设备、工业自动化等各个领域，嵌入式系统已经成为现代化社会不可或缺的一部分。</li>
+<li>开发工具：随着嵌入式系统应用范围的扩大，开发工具也得到了不断的改进和完善，如开发板、集成开发环境、仿真工具等，这些工具可以帮助开发人员更加高效地进行嵌入式系统的开发和测试。</li>
+<li>安全性问题：随着嵌入式系统的普及，安全性问题也逐渐凸显出来，如网络攻击、数据泄露等问题，这些问题需要得到妥善的解决，以确保嵌入式系统的安全性和可靠性。</li>
+</ol>
+<p>总之，嵌入式系统领域的发展将会越来越快速和广泛，它将在未来的各个领域发挥更加重要的作用，为人类的生活和工作带来更多的便利和效益。</p>
+<blockquote>
+<p>举例说明嵌入式系统硬件平台的结构和组成，可以如何剪裁配置?</p>
+</blockquote>
+<p>以嵌入式处理器为例，其硬件平台是以嵌入式微处理器为核心，主要由嵌入式微处理器、总线、存储器、I&#x2F;O接口和其他设备（时钟、电源等）组成。</p>
+<p>嵌入式处理器的剪裁配置可以从以下几个方面进行：</p>
+<ol>
+<li>处理器架构：嵌入式处理器的架构包括RISC、CISC等。不同的处理器架构适用于不同的应用场景。</li>
+<li>处理器频率：处理器频率是指处理器的时钟速度，通常以MHz或GHz为单位。处理器频率越高，处理器性能越好，但同时也会增加功耗和成本。因此，在剪裁配置嵌入式处理器时，需要根据应用的需求选择适当的处理器频率。</li>
+<li>存储器容量：存储器容量包括内存和闪存两种类型。内存用于存储程序和数据，闪存用于存储系统固件和数据。存储器容量越大，系统的性能和功能越强大，但同时也会增加成本和功耗。因此，在剪裁配置嵌入式处理器时，需要根据应用的需求选择适当的存储器容量。</li>
+<li>通信接口：通信接口包括WiFi、蓝牙等多种类型。不同的通信接口适用于不同的应用场景，如WiFi适用于高速数据传输，蓝牙适用于低功耗设备通信。在剪裁配置嵌入式处理器时，需要根据应用的需求选择适当的通信接口。</li>
+</ol>
+<blockquote>
+<p>比较嵌入式处理器与PC处理器的差异。</p>
+</blockquote>
+<p>嵌入式处理器和PC处理器具有以下几个方面的差异：</p>
+<ol>
+<li>架构设计：嵌入式处理器通常采用精简指令集（RISC）架构，而PC处理器采用复杂指令集（CISC）架构。RISC架构具有指令简单、执行速度快、功耗低等优点，适合于嵌入式系统的应用场景。CISC架构具有指令复杂、执行速度慢、功耗高等特点，适合于高性能计算机的应用场景。</li>
+<li>处理器性能：嵌入式处理器通常具有低功耗、低成本、小尺寸等特点，适合于嵌入式系统的应用场景。PC处理器通常具有高性能、高功耗、大尺寸等特点，适合于高性能计算机的应用场景。</li>
+<li>外设接口：嵌入式处理器通常具有少量的输入输出接口，适合于嵌入式系统的应用场景；而PC处理器通常具有大量的输入输出接口，如USB、HDMI等，适合于高性能计算机的应用场景。</li>
+<li>系统架构：嵌入式系统通常采用单片机、嵌入式处理器等单一处理器架构，适合于对资源要求较低、功耗要求较低的应用场景。PC系统通常采用多核处理器、GPU等多处理器架构，适合于对性能要求较高、资源要求较高的应用场景。</li>
+<li>应用领域：嵌入式系统通常应用于智能家居、汽车控制系统、医疗设备、工业自动化等领域。PC系统通常应用于桌面电脑、笔记本电脑、服务器等领域。</li>
+</ol>
+<blockquote>
+<p> 详细说明两种以上主流嵌入式处理器的特点及实际应用情况.</p>
+</blockquote>
+<ol>
+<li>ARM Cortex-M系列处理器</li>
+</ol>
+<p>ARM Cortex-M系列处理器是一种低功耗、高性能的嵌入式处理器，适用于智能家居、汽车控制系统、医疗设备、工业自动化等领域。其主要特点包括：</p>
+<ul>
+<li>精简指令集（RISC）架构，指令简单、执行速度快、功耗低；</li>
+<li>支持多种存储器类型，包括闪存、SRAM、EEPROM等；</li>
+<li>支持多种通信接口，包括SPI、I2C、UART等；</li>
+<li>支持多种中断类型，包括外部中断、定时器中断等；</li>
+<li>支持低功耗模式，包括待机模式、休眠模式等。</li>
+</ul>
+<p>ARM Cortex-M系列处理器的实际应用情况包括：</p>
+<ul>
+<li>智能家居：控制智能家居设备，如智能灯泡、智能插座、智能门锁等；</li>
+<li>汽车控制系统：控制汽车发动机、变速器、刹车等系统；</li>
+<li>医疗设备：控制医疗设备，如血压计、血糖仪、心电图仪等；</li>
+<li>工业自动化：控制工业自动化设备，如PLC、工业机器人等。</li>
+</ul>
+<ol start="2">
+<li>Intel Atom系列处理器</li>
+</ol>
+<p>Intel Atom系列处理器是一种高性能、低功耗的嵌入式处理器，适用于智能零售、智能制造、智能交通等领域。其主要特点包括：</p>
+<ul>
+<li>复杂指令集（CISC）架构，指令复杂、执行速度快、功耗低；</li>
+<li>支持多核处理，提高系统性能；</li>
+<li>支持多种存储器类型，包括闪存、DRAM、SSD等；</li>
+<li>支持多种通信接口，包括PCIe、USB、Ethernet等；</li>
+<li>支持多种操作系统，包括Windows、Linux等。</li>
+</ul>
+<p>Intel Atom系列处理器的实际应用情况包括：</p>
+<ul>
+<li>智能零售：控制智能售货机、智能收银机等设备；</li>
+<li>智能制造：控制工业机器人、智能仓储等设备；</li>
+<li>智能交通：控制智能交通信号灯、智能停车场等设备。</li>
+</ul>
+<blockquote>
+<p>嵌入式软件运行过程有几个阶段?每个阶段的主要工作是什么?</p>
+</blockquote>
+<p>主要分为六个阶段（含上电复位）。</p>
+<ul>
+<li><p>板级初始化：CPU中堆栈指针寄存器的初始化、BSS段(Block Storage Space)的初始化、CPU芯片级的初始化，中断控制器、内存等的初始化。</p>
+</li>
+<li><p>引导&#x2F;升级系统：</p>
+<p><strong>系统引导阶段:</strong></p>
+<p>RAM启动。系统软件从NorFlash中读出并加载到RAM中运行: 运行速度较快; 软件可压缩存储在Flash中。</p>
+<p>NorFlash启动。系统软件直接在NorFlash上运行</p>
+<p>外存启动。软件中读取出来加载到RAM中运行，成本低 。</p>
+<p><strong>系统升级阶段:</strong></p>
+<p>远程升级。通过网络; 支持TFTP、FTP、HTTP等方式</p>
+<p>本地升级。使用超级终端或特定的升级软件进行。</p>
+</li>
+<li><p>系统初始化：操作系统等系统软件运行必需的初始化工作，如根据系统配置完成初始化数据空间、初始化系统所需的接口和外设……的工作。</p>
+</li>
+<li><p>应用初始化：应用软件运行必需的初始化工作，如应用任务的创建、信号量的创建、消息队列的创建、应用相关的其它初始化……</p>
+</li>
+<li><p>多任务应用：系统进入多任务状态，操作系统按照已确定的算法进行任务的调度，各应用任务分别完成特定的功能</p>
+</li>
+</ul>
+<blockquote>
+<p>什么是BSP？BSP与BIOS有什么异同?</p>
+</blockquote>
+<p>BSP是Board Support Package（板级支持包）的缩写，是一种软件层，提供了与硬件平台相关的驱动程序、操作系统接口、硬件抽象层等功能，以便操作系统和应用程序能够在特定的硬件平台上运行。</p>
+<p>BSP与BIOS有以下异同：</p>
+<ol>
+<li>功能不同</li>
+</ol>
+<p>BSP提供的是与硬件平台相关的驱动程序、操作系统接口、硬件抽象层等功能，以便操作系统和应用程序能够在特定的硬件平台上运行。而BIOS（Basic Input&#x2F;Output System）则是一种固件，提供了计算机启动时的自检、硬件初始化、系统参数设置等功能。</p>
+<ol start="2">
+<li>位置不同</li>
+</ol>
+<p>BSP通常是操作系统的一部分，与操作系统一起发布。而BIOS则是计算机硬件上的一块固件芯片，通常由计算机制造商预装在计算机上。</p>
+<ol start="3">
+<li>适用范围不同</li>
+</ol>
+<p>BSP适用于嵌入式系统和嵌入式设备，可以针对不同的硬件平台进行定制开发。而BIOS适用于个人计算机和服务器等通用计算机，可以在不同的操作系统上运行。</p>
+<ol start="4">
+<li>开发方式不同</li>
+</ol>
+<p>BSP的开发通常需要硬件平台的相关资料和开发工具，需要针对具体的硬件平台进行开发和调试。而BIOS的开发则需要掌握相关的汇编语言和固件开发工具，需要针对具体的计算机硬件进行开发和调试。</p>
+<blockquote>
+<p>嵌入式操作系统有哪两种引导模式？比较两种引导模式的优缺点。</p>
+</blockquote>
+<p>嵌入式操作系统有两种引导模式：裸机引导和Bootloader引导。</p>
+<ol>
+<li>裸机引导</li>
+</ol>
+<p>裸机引导是指在嵌入式设备上直接运行操作系统内核，没有任何引导程序的干预。裸机引导的优点是启动速度快，系统资源占用少，适用于资源有限的嵌入式设备。缺点是不够灵活，无法进行系统配置和更新，也无法进行系统恢复和修复。</p>
+<ol start="2">
+<li>Bootloader引导</li>
+</ol>
+<p>Bootloader引导是指在嵌入式设备上运行一个小型的引导程序，用于加载操作系统内核和其他系统组件。Bootloader引导的优点是灵活性高，可以进行系统配置和更新，也可以进行系统恢复和修复，有较高的可靠性。缺点是启动速度相对较慢，系统资源占用相对较多。</p>
+<blockquote>
+<p>前后台系统在轮询系统的基础上做了什么改变？其运行方式是什么？它适用于什么嵌入式应用？</p>
+</blockquote>
+<p>前后台系统相比于轮询系统，主要做了以下改变：</p>
+<ol>
+<li>引入中断机制</li>
+</ol>
+<p>前后台系统引入了中断机制，可以在外部事件发生时立即响应，避免了轮询系统中需要不断查询的情况，提高了系统的响应速度和效率。</p>
+<ol start="2">
+<li>前后台结构</li>
+</ol>
+<p>前后台系统将任务分为前台任务和后台任务两种，前台任务通常是与用户交互相关的任务，需要及时响应用户的输入；后台任务通常是与硬件控制、数据处理等相关的任务，需要长时间运行。两者宏观上并行。</p>
+<p>前后台系统的运行方式是：系统启动后，前台任务和后台任务分别运行在不同的线程或进程中，前台任务等待用户输入或其他外部事件，后台任务负责处理硬件控制、数据处理等任务。当外部事件发生时，系统会触发相应的中断，调用相应的事件处理函数进行处理。如图所示：</p>
+<p><img src="https://www.helloimg.com/images/2023/05/08/oxsaCE.png"></p>
+<p>前后台系统适用于计算机与单用户交互、实时I&#x2F;O设备控制的应用的场合下。如工业自动化、智能家居、医疗设备等。</p>
+<blockquote>
+<p>简述ARM9 S3C2440A的中断处理流程。</p>
+</blockquote>
+<ol>
+<li>中断CPU当前执行</li>
+<li>保护被中断进程现场</li>
+<li>分析中断原因，转去相应的中断处理程序</li>
+<li>执行中断处理程序</li>
+<li>恢复被中断进程的现场</li>
+<li>CPU继续执行原来被中断的进程</li>
+</ol>
+<blockquote>
+<p>结合代码分析：IRQ中断发生后，ARM9 S3C2440如何保护现场？需要保存哪些信息？</p>
+</blockquote>
+<p>需要保存的内容主要是寄存器。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">; 现场保存:r0-r12、LR、CPSR </span><br><span class="line">sub lr,lr, #4;由IRQ模式计算返回地址 (1) </span><br><span class="line">stmfd sp!,&#123;r0-r12,lr&#125;;保存寄存器和pc (2)</span><br><span class="line">mrs r0, cpsr;(3)</span><br><span class="line">stmfd sp!,&#123;r0&#125;;保存CPSR (4)</span><br></pre></td></tr></table></figure>
+
+<p>保护现场需要保护寄存器内容，保存寄存器内容和PC、CPSR，其中包含子程序返回地址等信息。</p>
+<blockquote>
+<p>抢占调度和不可抢占调度的区别是什么？RTOS通常采取上述方式的哪一种？其原因是什么？</p>
+</blockquote>
+<p>抢占调度和不可抢占调度的区别在于任务是否可以被强制中断。具体来说：</p>
+<ul>
+<li>抢占调度</li>
+</ul>
+<p>抢占调度是指在任务执行过程中，如果有更高优先级的任务需要运行，系统会强制中断当前任务，切换到高优先级任务运行。抢占调度可以保证高优先级任务及时运行，但是会增加系统的开销和复杂度。</p>
+<ul>
+<li>不可抢占调度</li>
+</ul>
+<p>不可抢占调度是指在任务执行过程中，不允许被其他任务中断，直到任务自己执行完毕或者主动让出CPU。不可抢占调度可以减少系统的开销和复杂度，但是可能会导致高优先级任务无法及时运行，影响系统的实时性。</p>
+<p>RTOS通常采取抢占调度的方式。原因是：</p>
+<ol>
+<li>抢占调度可以保证高优先级任务及时运行，提高系统的实时性。</li>
+<li>抢占调度可以减少任务的响应时间，提高系统的性能。</li>
+<li>抢占调度可以更好地管理系统资源，避免任务之间的资源竞争和死锁等问题。</li>
+<li>抢占调度可以更好地支持多任务并发执行，提高系统的可扩展性和可维护性。</li>
+</ol>
+<blockquote>
+<p>什么是并发性？它和并行性的区别是什么？什么是safety? 它和security的区别是什么？</p>
+</blockquote>
+<p>并发性是指系统能够同时处理多个任务，而并行性是指系统能够同时执行多个任务。并发性和并行性的区别在于，并发性是指多个任务在同一时间段内交替执行，而并行性是指多个任务同时执行。</p>
+<p>Safety是指系统能够在正常操作和异常情况下保持稳定和可靠的能力。例如，一个汽车的安全性包括了避免事故的能力、防止车辆失控的能力、保护乘客的能力等。而Security是指系统能够在面对各种威胁和攻击时保护系统和数据的能力。例如，一个网络系统的安全性包括了保护系统免受黑客攻击的能力、保护用户隐私的能力、保护数据不被窃取的能力等。</p>
+<blockquote>
+<p>与通用操作系统相比，RTOS具有哪些特点？请重点对其中的一点进行详细叙述。</p>
+</blockquote>
+<p>相比通用操作系统，RTOS具有以下特点：</p>
+<ol>
+<li>实时性：RTOS的最大特点就是实时性，它能够保证任务在规定的时间内完成，从而满足实时性需求。</li>
+<li>简单：RTOS相比通用操作系统更加简单，它只关注任务的调度和通信，不涉及复杂的系统管理和资源分配。</li>
+<li>可裁剪：RTOS可以根据实际需求进行裁剪，只保留必要的功能，从而减少系统资源占用。</li>
+<li>低延迟：RTOS的任务调度时间非常短，可以保证任务的及时响应，从而降低系统的延迟。</li>
+<li>可靠性：RTOS的可靠性非常高，它能够保证任务的正确执行，从而提高系统的稳定性。</li>
+</ol>
+<p>其中，实时性是RTOS最为关键的特点之一。实时性是指系统能够在规定的时间内完成任务。在嵌入式系统中，往往需要处理一些实时性要求较高的任务，如控制系统、通信系统等。如果系统无法在规定的时间内完成任务，就会导致系统失效，从而产生严重的后果。针对实时性要求的不同，实时性可以分为硬实时、软实时和严格实时三类。主流的RTOS需要支持多种实时性。</p>
+<h4 id="第二组"><a href="#第二组" class="headerlink" title="第二组"></a>第二组</h4><blockquote>
+<p>什么是内核移植？aCoral的移植工作包括哪些内容？</p>
+</blockquote>
+<p>内核移植就是将将内核代码从一种硬件平台转移到另一种硬件平台上运行。</p>
+<p>aCoral的移植包括两个部分：一是硬件抽象层(HAL)移植，二是项目移植。</p>
+<ul>
+<li><p>HAL移植：针对不同目标板改写相关代码</p>
+</li>
+<li><p>项目移植：处理规则不一致的问题</p>
+</li>
+</ul>
+<blockquote>
+<p>RTOS内核中与硬件有关的代码通常包括哪几个部分？</p>
+</blockquote>
+<p>通常包括以下5个部分：</p>
+<ul>
+<li>启动</li>
+<li>中断</li>
+<li>任务切换</li>
+<li>内存</li>
+<li>驱动程序</li>
+</ul>
+<blockquote>
+<p>当ARM9 S3C2410产生复位异常时，软件上需要做什么处理？请结合代码加以描述。</p>
+</blockquote>
+<h4 id="第三组"><a href="#第三组" class="headerlink" title="第三组"></a>第三组</h4><blockquote>
+<p>aCoral优先级通过什么方式定义？aCoral优先级表示与uC&#x2F;OSII有什么不同？</p>
+</blockquote>
+<p>aCoral线程优先级通过数组<code>acoral_prio_array</code>表述；用优先级位图数组<code>bitmap[PRIO_BITMAP_SIZE]</code>标识某一优先级是否任务就绪。</p>
+<p>aCoral优先级表示与uC&#x2F;OSII的不同点在于aCoral支持线程具有相同优先级的情况，一个优先级可以对应多个线程。</p>
+<blockquote>
+<p>什么是调度机制？什么是调度策略？</p>
+</blockquote>
+<p>aCoral将调度分为两层，上层为策略，下层为机制。</p>
+<p>调度策略，就是如何确定线程的<code>CPU</code>、优先级<code>prio</code>等参数。线程按照FCFS、分时或速率单调RM策略来调度，还有对某些线程要进行特殊调度处理，然后根据相应操作来初始化线程。一种策略对应一种线程。</p>
+<p>调度机制就是负责调度策略的具体实施，即根据给定调度策略来安排任务的具体执行。</p>
+<blockquote>
+<p>请叙述aCoral如何创建一个任务，结合一个开源的aCoral，给出aCoral创建任务的流程图，并对其TCB的初始化进行详细解释。</p>
+</blockquote>
+<p><strong>如何创建一个任务</strong>：首先为线程分配空间，然后根据创建线程的调度策略对线程TCB进行相关初始化，接着对线程的堆栈进行初始化，最后将创建的线程挂载到就绪队列上，供内核调度。</p>
+<p><strong>流程图</strong>：<img src="https://www.helloimg.com/images/2023/05/13/oxuQlQ.jpg"></p>
+<p>详细说明见下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">acoral_id <span class="title function_">create_comm_thread</span><span class="params">(<span class="type">void</span> (*route) (<span class="type">void</span> *args), acoral_u32</span></span><br><span class="line"><span class="params">stack_size, <span class="type">void</span> *args, acoral _char *name, acoral_u8 prio, acoral_8 CRU)</span></span><br><span class="line">acoral_ <span class="type">_comm_policy_data_t</span> policy_ctrl;</span><br><span class="line">•acoral threadt *thread;</span><br><span class="line"><span class="comment">/*分配TCB 数据块*/</span></span><br><span class="line">Enread=acorat_alloc_thread ()：<span class="comment">//返回刚分配的TCB 的指针</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="literal">NULL</span>==thread)&#123;</span><br><span class="line">  acoral_printerr (<span class="string">&quot;Alloc thread:&amp;s fail\n&quot;</span>, name);</span><br><span class="line">  acora__printk (<span class="string">&quot;No Mem Space or Beyond the max thread\n&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*为TCB 成员赋值*/</span></span><br><span class="line">thread-&gt;name=name;</span><br><span class="line">stack_size=stack_sized&amp;(~<span class="number">3</span>);</span><br><span class="line">thread-&gt;stack_size=stack_size;</span><br><span class="line">thread-&gt;<span class="built_in">stack</span> buttom=<span class="literal">NULL</span>;</span><br><span class="line"><span class="comment">/*设置线程要运行的CPU 核心*/</span></span><br><span class="line">POLICY_ctrL.CPU=CPU;</span><br><span class="line"><span class="comment">/*设置线程的优先级*/</span></span><br><span class="line">  policy_ctri.prio=prio;</span><br><span class="line">  policy_ctrl.prio_type=ACORAL_BASE_PRIO;</span><br><span class="line">  thread-&gt;policy=ACORAL_SCHED_POLICY_COMM;</span><br><span class="line">  thread-&gt;CPU_mask=<span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">return</span> comm_policy_thread_Init (thread, route, args, §policy_ctrl);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>aCoral什么时候会触发内核调度程序acoral_sched()的执行？acoral_sched是如何调度任务的？</p>
+</blockquote>
+<p>何时触发：</p>
+<ul>
+<li>中断服务程序结束时</li>
+<li>运行任务因缺乏资源而被阻塞时</li>
+<li>任务周期开始或者结束的时刻</li>
+<li>高优先级任务就绪时</li>
+</ul>
+<p>如何调度任务：</p>
+<p>从就绪队列中找出最高优先级任务，接着进行任务切换，执行完任务后退出。</p>
+<blockquote>
+<p>aCoral的HAL_CONTEXT_SWITCH与HAL_INTR_CTX_SWITCH有什么区别？分别在什么情况下调用？</p>
+</blockquote>
+<p><strong>区别</strong></p>
+<ul>
+<li>HAL_CONTEXT_SWITCH只执行了普通的保存旧上下文内容到堆栈、将新上下文内容恢复到寄存器和CPSR等操作；</li>
+<li>而HAL_INTR_CTX_SWITCH处理处于中断环境下的上下文切换，就流程上来说复杂一些：刚进入中断时，将旧的线程的上下文环境保存到中断的堆栈中，而在线程切换时从中断模式栈顶复制环境到旧的线程的堆栈。</li>
+</ul>
+<p><strong>适用情况</strong></p>
+<p>HAL_CONTEXT_SWITCH用于非中断方式下的任务切换（也就是任务主动发起的线程切换），而HAL_INTR_CTX_SWITCH用于中断触发的任务切换。</p>
+<blockquote>
+<p>结合代码，说明HAL_INTR_ENTRY在中断响应过程中的作用？它是如何区分不同中断源的？该函数执行过程中进行了几次模式切换？为什么要进行切换？</p>
+</blockquote>
+<p><em>HAL_INTR_ENTRY代码：</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">HAL_INTR_ENTRY</span><br><span class="line">	stmfd sp!, &#123;r0-r12, lr&#125;</span><br><span class="line">	mrs r1, spsr</span><br><span class="line">	stmfd	sp!, &#123;r1&#125;</span><br><span class="line">	msr cpsr_c, #SVCMODE|NOIRQ		</span><br><span class="line">	</span><br><span class="line">	stmfd sp!, &#123;lr&#125;</span><br><span class="line">	ldr r0, =INTOFFSET	@注1</span><br><span class="line">	ldr r0, [r0]</span><br><span class="line">	mov lr, pc</span><br><span class="line">	ldr pc, =hal_all_entry</span><br><span class="line">	ldmfd sp!, &#123;lr&#125;</span><br><span class="line">	msr cpsr_c, #IRQMODE|NOINT</span><br><span class="line">	</span><br><span class="line">	ldmfd sp!, &#123;r0&#125;</span><br><span class="line">	msr spsr_cxsf, r0</span><br><span class="line">	ldmfd sp!, &#123;r0-r12, lr&#125;</span><br><span class="line">	subs pc, lr, #4</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用</strong></p>
+<p>HAL_INTR_ENTRY是IRQ公共入口函数，它是指向所有IRQ的一个公共入口。当各种IRQ发生时，它们都将汇集到HAL_INTR_ENTRY，进行硬件抽象层中断处理。</p>
+<p><strong>区分中断源</strong></p>
+<p>在<code>注1</code>所在的那一行代码中，函数读取中断控制器中<code>INTOFFSET</code>寄存器的值。当某个IRQ发生时，<code>INTOFFSET</code>会为该中断源分配一个整数，该整数唯一地对应于该中断源。这样可以通过读取该寄存器分辨不同的中断源。</p>
+<p><strong>模式切换</strong></p>
+<p>一共进行了两次模式切换。第一次进入了SVC模式，以便允许中断嵌套。第二次进入了IRQ模式，以恢复上下文内容。</p>
+<blockquote>
+<p>什么是任务的上下文切换？在aCoral中，任务上下文切换有哪两种类型?上下文切换的主要内容是什么？请提供aCoral在ARM mini2440上任务切换的代码并进行解释。</p>
+</blockquote>
+<p>任务上下文切换就是从一个线程转移到另一个线程，从底层来看就是改变了PC值。同时，改变PC值还是不够，因为一个线程不仅由PC构建，还有堆栈、寄存器的值等。</p>
+<p>任务上下文切换有以下两种类型：</p>
+<ol>
+<li>如果先前的线程处于退出状态<code>ACORAL_THREAD_STATE_EXIT</code>，则调用<code>HAL_SWITCH_TO</code>切入最高级线程</li>
+<li>如果先前的线程并非处于退出状态，则调用<code>HAL_CONTEXT_SWITCH</code>切换到最高优先级进程。</li>
+</ol>
+<p><em>任务切换代码<code>HAL_CONTEXT_SWITCH</code>如下：</em></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">HAL_CONTEXT_SWITCH: </span><br><span class="line">  stmfd sp!, &#123;lr&#125;@保存PC </span><br><span class="line">  stmfd sp!, &#123;r0 - r12,lr&#125; @保存寄存器LR，及r0-r12 </span><br><span class="line">  mrs r4, CPSR</span><br><span class="line">  stmfd sp!, &#123;r4&#125;@保存cpsr  </span><br><span class="line">  str sp, [r0]@保存旧上下文栈指针到旧的线程prev-&gt;stack</span><br><span class="line">  ldr sp, [r1]@取得新上下文指针 </span><br><span class="line">  ldmfd sp!, &#123;r0&#125;       </span><br><span class="line">  msr cpsr, r0	@恢复新cpsr(不能用spsr，因为sys,user模式没有SPSR)</span><br><span class="line">  ldmfd sp!, &#123;r0-r12,lr,pc&#125; @恢复寄存器</span><br></pre></td></tr></table></figure>
+
+<p>其中L(1)<del>L(5)是保存被抢占线程的环境，L(6)</del>L(9)是恢复抢占线程的现场。</p>
+<p>上下文切换的内容如下：<img src="https://www.helloimg.com/images/2023/05/17/oEO61t.png"></p>
+<blockquote>
+<p>假定任务优先级分为256级，每个级别对应唯一任务，在aCoral如何利用优先级位图法从就绪队列中找到最高优先级任务？能否做到查找时间和队列长度无关的?</p>
+</blockquote>
+<p>aCoral线程优先级通过数组<code>acoral_prio_array</code>表述；用优先级位图数组<code>bitmap[PRIO_BITMAP_SIZE]</code>标识某一优先级是否任务就绪。</p>
+<p>具体可以看如下代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">acoral_u32 <span class="title function_">acoral_find_first_bit</span><span class="params">(<span class="type">const</span> acoral_u32 *b,acoral_u32 length)</span></span><br><span class="line">&#123;</span><br><span class="line">	........</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (off = <span class="number">0</span>; v = b[off], off &lt; length; off++) &#123;                                </span><br><span class="line">    <span class="keyword">if</span>(v)     <span class="comment">// 选择第一个数值不为0的32位bitmap</span></span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> acoral_ffs(v)+off*<span class="number">32</span>;    <span class="comment">//确定最低一位为1的是哪位</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">acoral_u32 <span class="title function_">acoral_ffs</span><span class="params">(acoral_u32 word)</span>                                          </span><br><span class="line">&#123;</span><br><span class="line">	acoral_u32 k;</span><br><span class="line">	k = <span class="number">31</span>;</span><br><span class="line">	<span class="keyword">if</span> (word &amp; <span class="number">0x0000ffff</span>) &#123; k -= <span class="number">16</span>; word &lt;&lt;= <span class="number">16</span>; &#125;                                 </span><br><span class="line">	<span class="keyword">if</span> (word &amp; <span class="number">0x00ff0000</span>) &#123; k -= <span class="number">8</span>;  word &lt;&lt;= <span class="number">8</span>; &#125;                              	</span><br><span class="line">  <span class="keyword">if</span> (word &amp; <span class="number">0x0f000000</span>) &#123; k -= <span class="number">4</span>;  word &lt;&lt;= <span class="number">4</span>; &#125;                                </span><br><span class="line">	<span class="keyword">if</span> (word &amp; <span class="number">0x30000000</span>) &#123; k -= <span class="number">2</span>;  word &lt;&lt;= <span class="number">2</span>; &#125;                               </span><br><span class="line">  <span class="keyword">if</span> (word &amp; <span class="number">0x40000000</span>) &#123; k -= <span class="number">1</span>; &#125;                                               </span><br><span class="line">  <span class="keyword">return</span> k;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如上代码所示，aCoral的方法是这样找到最高优先级的任务的：首先选择第一个数值不为0的32位bitmap（最高优先级存在于这个bitmap），再确定该bitmap的最低位为1是哪一位。从而找到最高优先级任务。</p>
+<p>由上述过程可知，查找时间仅与<code>PRIO_BITMAP_SIZE</code>这个事先已定好的量有关，与队列长度无关。</p>
+<blockquote>
+<p>简单叙述aCoral在ARM9 Mini2440上的中断响应流程。重点对响应过程中的acoral_intr_entry()函数进行说明。</p>
+</blockquote>
+<p>中断响应流程：</p>
+<p><img src="https://www.helloimg.com/images/2023/05/17/oEOgRE.png"></p>
+<p><em><code>acoral_intr_entry()</code>代码及说明:</em></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">acoral_intr_entry</span><span class="params">(acoral_vector <span class="built_in">vector</span>)</span>&#123;</span><br><span class="line">	acoral_vector index;</span><br><span class="line"><span class="comment">// HAL层中断号变为内核层中断表号 </span></span><br><span class="line">  HAL_TRANSLATE_VECTOR(<span class="built_in">vector</span>,index); </span><br><span class="line">  acoral_intr_nesting_inc(); <span class="comment">// 中断嵌套层+1 </span></span><br><span class="line">  <span class="keyword">if</span>(intr_table[index].type == ACORAL_EXPERT_INTR)&#123;</span><br><span class="line"><span class="comment">// 根据内核层中新中断号，找到对应的中断向量，处理 </span></span><br><span class="line">    intr_table[index].isr(<span class="built_in">vector</span>);</span><br><span class="line">		acoral_intr_disable(); </span><br><span class="line"> 	&#125;<span class="keyword">else</span>&#123;<span class="comment">//这个之前都是要关中断的，调用中断进入函数</span></span><br><span class="line">    <span class="keyword">if</span>(intr_table[index].enter!=<span class="literal">NULL</span>) <span class="comment">//需要入口处理</span></span><br><span class="line">      intr_table[index].enter(<span class="built_in">vector</span>);</span><br><span class="line">		acoral_intr_enable(); <span class="comment">//开中断：增加调度点</span></span><br><span class="line">    intr_table[index].isr(<span class="built_in">vector</span>); <span class="comment">//调用该中断的服务处理函数</span></span><br><span class="line">    acoral_intr_disable(); <span class="comment">//关中断</span></span><br><span class="line">    <span class="keyword">if</span>(intr_table[index].<span class="built_in">exit</span>!=<span class="literal">NULL</span>)<span class="comment">//需要出口处理</span></span><br><span class="line">      intr_table[index].<span class="built_in">exit</span>(<span class="built_in">vector</span>);<span class="comment">//此时中断表未空</span></span><br><span class="line">	&#125; acoral_intr_nesting_dec(); <span class="comment">//本次中断待结束，嵌套减一</span></span><br><span class="line">  acoral_intr_exit();<span class="comment">//退出中断</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>acoral_intr_entry()</code>是真正的中断公共服务入口函数。</p>
+<blockquote>
+<p>互斥量和信号量的区别是什么？它们分别用在哪些情况下？</p>
+</blockquote>
+<p><strong>区别</strong></p>
+<p>对于互斥量来说，主要应用于临界资源的互斥访问，并且能够有效避免优先级反转问题。对于信号量而言，它虽然也能用于临界资源的互斥访问，但是不能处理优先级反转问题，也正因为信号量没有考虑优先级反转问题，所以相对于互斥量来说是一种轻量级的实现方式，比互斥量耗费更少的CPU资源；此外，除了用于互斥，还可以用于处理不同线程之间的同步问题，而互斥量却不行。</p>
+<p><strong>适用情况</strong></p>
+<ul>
+<li><p>互斥量：适用于需要互斥访问临界资源的情况，可以有效避免优先级反转问题，但相对较重，耗费更多的CPU资源；</p>
+</li>
+<li><p>信号量：适用于需要同步不同线程之间的情况，相对较轻，耗费更少的CPU资源，但不能处理优先级反转问题。</p>
+</li>
+</ul>
+
+            </div>
+
+            
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">Post title</span>: <span class="content">嵌入式OS思考题</span>
+        </li>
+        <li class="post-author">
+            <span class="type">Post author</span>: <span class="content">Goblin Mike</span>
+        </li>
+        <li class="post-time">
+            <span class="type">Create time</span>: <span class="content">2023-05-08 19:09:11</span>
+        </li>
+        <li class="post-link">
+            <span class="type">Post link</span>: <span class="content">2023/05/08/嵌入式OS思考题/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">Copyright notice</span>: <span class="content">All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="Copy copyright info" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                               rel="next"
+                               href="/2023/05/07/2023-05-Todo/"
+                            >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Todo List(2023.05)</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                                <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%85%A5%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%80%9D%E8%80%83%E9%A2%98"><span class="nav-text">嵌入式操作系统思考题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%BB%84"><span class="nav-text">第一组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%BB%84"><span class="nav-text">第二组</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%BB%84"><span class="nav-text">第三组</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            
+<footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+            2023
+            
+                &nbsp;<i class="fas fa-heart icon-animate"></i>
+                &nbsp;<a href="/">Goblin Mike</a>
+            
+        </div>
+        
+            <script async 
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
+        </div>
+        
+        
+            <div class="deploy-info info-item">
+                
+                    <a target="_blank" rel="nofollow" href="https://github.com/MikeGoblin/mikegoblin.github.io">
+                
+                    This site is provided with deployment services by <span class="tooltip" data-content="GitHub Pages"><img src="/images/deploy-provider/github.png"></span>
+                
+                    </a>
+                
+            </div>
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-block.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/post-helper.js"></script>
+
+        
+            
+<script src="/js/libs/anime.min.js"></script>
+
+        
+        
+            
+<script src="/js/toc.js"></script>
+
+        
+    
+</div>
+
+
+
+</body>
+</html>

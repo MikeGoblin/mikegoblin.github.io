@@ -31,8 +31,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {}
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","favicon":"/images/avatar.jpg","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep creative.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":false,"preload":false},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":false,"auto":false,"custom_label_list":["Stu"]},"word_count":{"enable":false,"wordcount":false,"min2read":false},"img_align":"center","copyright_info":false},"version":"3.6.1"}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","favicon":"/images/avatar.jpg","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep Creative.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":false,"custom_label_list":["happy"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"version":"3.6.1"}
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
     KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
     KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original article title","author":"Original article author","link":"Original article link"}
@@ -103,9 +103,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -160,12 +166,13 @@
         <div class="page-template-content keep-markdown-body">
             
                 <h5 id="1-教育经历"><a href="#1-教育经历" class="headerlink" title="1. 教育经历"></a>1. 教育经历</h5><p>目前于电子科技大学（UESTC）软件工程学院本科就读，意向读研。</p>
-<h5 id="2-邮箱"><a href="#2-邮箱" class="headerlink" title="2. 邮箱"></a>2. 邮箱</h5><p><a class="link"   href="mailto:&#x6b;&#104;&#108;&#104;&#97;&#x6e;&#100;&#x73;&#x6f;&#x6d;&#x65;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;" >&#x6b;&#104;&#108;&#104;&#97;&#x6e;&#100;&#x73;&#x6f;&#x6d;&#x65;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;<i class="fas fa-external-link-alt"></i></a></p>
+<h5 id="2-邮箱"><a href="#2-邮箱" class="headerlink" title="2. 邮箱"></a>2. 邮箱</h5><p><a class="link"   href="mailto:&#107;&#104;&#108;&#x68;&#97;&#110;&#100;&#x73;&#x6f;&#109;&#x65;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;" >&#107;&#104;&#108;&#x68;&#97;&#110;&#100;&#x73;&#x6f;&#109;&#x65;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;<i class="fas fa-external-link-alt"></i></a></p>
 <h5 id="3-求职意向"><a href="#3-求职意向" class="headerlink" title="3. 求职意向"></a>3. 求职意向</h5><p>产品经理</p>
 <h5 id="4-兴趣爱好"><a href="#4-兴趣爱好" class="headerlink" title="4. 兴趣爱好"></a>4. 兴趣爱好</h5><ul>
 <li>羽毛球</li>
-<li>看比赛（体育、电竞都看）</li>
-<li>打游戏（王国之泪我来啦）</li>
+<li>看比赛</li>
+<li>打游戏</li>
+<li>喝冰阔落</li>
 <li>发呆</li>
 </ul>
 <h5 id="5-个人能力"><a href="#5-个人能力" class="headerlink" title="5. 个人能力"></a>5. 个人能力</h5><ul>
@@ -200,6 +207,17 @@
             
         </div>
         
+            <script async 
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
         <div class="theme-info info-item">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
         </div>
@@ -207,7 +225,11 @@
         
             <div class="deploy-info info-item">
                 
+                    <a target="_blank" rel="nofollow" href="https://github.com/MikeGoblin/mikegoblin.github.io">
+                
                     This site is provided with deployment services by <span class="tooltip" data-content="GitHub Pages"><img src="/images/deploy-provider/github.png"></span>
+                
+                    </a>
                 
             </div>
         
@@ -264,6 +286,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -282,6 +333,10 @@
 
 
 
+
+
+    
+<script src="/js/local-search.js"></script>
 
 
 

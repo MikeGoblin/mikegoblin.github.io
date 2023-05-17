@@ -9,7 +9,7 @@
     
     <title>
         
-            Python讲课笔记 |
+            讲Python |
         
         Goblin&#39;s Blog
     </title>
@@ -31,8 +31,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {}
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","favicon":"/images/avatar.jpg","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep creative.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":false,"preload":false},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":false,"auto":false,"custom_label_list":["Stu"]},"word_count":{"enable":false,"wordcount":false,"min2read":false},"img_align":"center","copyright_info":false},"version":"3.6.1"}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","favicon":"/images/avatar.jpg","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep Creative.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":false,"custom_label_list":["happy"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"version":"3.6.1"}
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
     KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
     KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original article title","author":"Original article author","link":"Original article link"}
@@ -103,9 +103,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -157,7 +163,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">Python讲课笔记</span>
+                <span class="title-hover-animation">讲Python</span>
             </div>
 
             
@@ -168,6 +174,8 @@
                     <div class="info">
                         <div class="author">
                             <span class="name">Goblin Mike</span>
+                            
+                                <span class="author-label">happy</span>
                             
                         </div>
                         <div class="meta-info">
@@ -183,7 +191,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-05-07 20:22:53</span>
+        <span class="pc">2023-05-08 01:58:50</span>
     </span>
     
     
@@ -191,7 +199,19 @@
 
     
     
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2k Words</span>
+        </span>
     
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>9 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
@@ -203,9 +223,10 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <p><em>使用在线<strong>python</strong>编译器进行练习：</em></p>
+                <p>可供练习的在线<code>python</code>编译器：</p>
 <p><a class="link"   target="_blank" rel="noopener" href="https://c.runoob.com/compile/9/" >https://c.runoob.com/compile/9/<i class="fas fa-external-link-alt"></i></a></p>
-<h2 id="1-第一个python程序"><a href="#1-第一个python程序" class="headerlink" title="1.第一个python程序"></a>1.第一个python程序</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello world&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>更多内容可以参看<a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/python3/python3-tutorial.html" >https://www.runoob.com/python3/python3-tutorial.html<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="1-第一个python程序"><a href="#1-第一个python程序" class="headerlink" title="1.第一个python程序"></a>1.第一个python程序</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;hello world&#x27;</span>)</span><br><span class="line"></span><br><span class="line">x = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line"><span class="built_in">print</span>(x + <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="2-变量与表达式"><a href="#2-变量与表达式" class="headerlink" title="2.变量与表达式"></a>2.变量与表达式</h2><blockquote>
 <p>自由落体公式 h &#x3D; 0.5 * g * t * t，其中g &#x3D; 9.8。对于给定的时间t，输出对应的高度h</p>
@@ -230,7 +251,7 @@
 <h2 id="4-循环控制结构（while-for）"><a href="#4-循环控制结构（while-for）" class="headerlink" title="4. 循环控制结构（while, for）"></a>4. 循环控制结构（while, for）</h2><blockquote>
 <p> 理解循环过程</p>
 </blockquote>
-<p><img src="https://uestc.feishu.cn/space/api/box/stream/download/asynccode/?code=NTE3ZWQyODRlOTljZWIwNzcyZjViNDcyMzQ1ZjAwMjFfeTBzY3lLMFpMZWlwdDFkbkVxZlJpek9VMEZWaGZ5SlhfVG9rZW46Ym94Y25KdmFrS0FhZktIdnUwNTNhTk5sT0FiXzE2ODM0NTc3NDg6MTY4MzQ2MTM0OF9WNA" alt="img"></p>
+<p><img src="https://www.helloimg.com/images/2023/05/07/oxq41T.gif"></p>
 <blockquote>
 <p>输入n，在屏幕上输出1~n之间的所有整数（包括n）</p>
 </blockquote>
@@ -301,7 +322,7 @@
 <p>Y &#x3D; f(x) &#x3D; x + 1</p>
 <p>函数是组织好的，可重复使用的，用来实现单一，或相关联功能的代码段。</p>
 <p>函数结构：</p>
-<p><img src="https://uestc.feishu.cn/space/api/box/stream/download/asynccode/?code=YzAxMGNkM2Q3ZTU1NjUzMWE4NjAyNzQzYTE3MzA2ZWJfVzNMaUQyTkZPM01VYWE2V2JFSUtNYk9aUWNNSDJ4RnhfVG9rZW46QjZrM2JQOXpybzl6YUd4bUtneGNlbWpSbk1jXzE2ODM0NTc3NDg6MTY4MzQ2MTM0OF9WNA" alt="img"></p>
+<p><img src="https://www.runoob.com/wp-content/uploads/2014/05/py-tup-10-26-1.png" alt="img"></p>
 <blockquote>
 <p>编写一个输出’hello world’的函数，并调用</p>
 </blockquote>
@@ -368,6 +389,33 @@
             </div>
 
             
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">Post title</span>: <span class="content">讲Python</span>
+        </li>
+        <li class="post-author">
+            <span class="type">Post author</span>: <span class="content">Goblin Mike</span>
+        </li>
+        <li class="post-time">
+            <span class="type">Create time</span>: <span class="content">2023-05-07 19:06:46</span>
+        </li>
+        <li class="post-link">
+            <span class="type">Post link</span>: <span class="content">2023/05/07/Python-Notes-for-Shelly/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">Copyright notice</span>: <span class="content">All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="Copy copyright info" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
 
             
 
@@ -383,7 +431,7 @@
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item">2023.05.Todo</span>
+                                <span class="post-nav-title-item">Todo List(2023.05)</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                             </a>
@@ -393,10 +441,10 @@
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/2022/12/01/%E6%98%9F%E8%BE%B0%E5%B7%A5%E4%BD%9C%E5%AE%A4%E6%8B%9B%E6%96%B0%E9%A2%98/"
+                               href="/2023/04/29/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8E%9F%E7%90%86%E8%AF%BE%E5%90%8E%E4%B9%A0%E9%A2%98/"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">2022年星辰工作室招新答题</span>
+                                <span class="post-nav-title-item">操作系统原理课后习题</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -444,6 +492,17 @@
             
         </div>
         
+            <script async 
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
         <div class="theme-info info-item">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
         </div>
@@ -451,7 +510,11 @@
         
             <div class="deploy-info info-item">
                 
+                    <a target="_blank" rel="nofollow" href="https://github.com/MikeGoblin/mikegoblin.github.io">
+                
                     This site is provided with deployment services by <span class="tooltip" data-content="GitHub Pages"><img src="/images/deploy-provider/github.png"></span>
+                
+                    </a>
                 
             </div>
         
@@ -525,6 +588,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -543,6 +635,10 @@
 
 
 
+
+
+    
+<script src="/js/local-search.js"></script>
 
 
 

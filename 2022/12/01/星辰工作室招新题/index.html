@@ -31,8 +31,8 @@
 
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {}
-    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en"}
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","favicon":"/images/avatar.jpg","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep creative.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":false,"preload":false},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":false,"auto":false,"custom_label_list":["Stu"]},"word_count":{"enable":false,"wordcount":false,"min2read":false},"img_align":"center","copyright_info":false},"version":"3.6.1"}
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"}
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066cc","favicon":"/images/avatar.jpg","avatar":"/images/avatar.jpg","font_size":null,"font_family":null,"hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"header_transparent":false,"background_img":"/images/bg.svg","description":"Keep Creative.","font_color":null,"hitokoto":false},"scroll":{"progress_bar":false,"percent":false}},"local_search":{"enable":true,"preload":true},"code_copy":{},"code_block":{"tools":{"enable":true,"style":"mac"},"highlight_theme":"default"},"side_tools":{},"pjax":{"enable":false},"lazyload":{"enable":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.8"},"waline":{"server_url":null,"reaction":false,"version":2}},"post":{"author_label":{"enable":true,"auto":false,"custom_label_list":["happy"]},"word_count":{"enable":true,"wordcount":true,"min2read":true},"img_align":"center","copyright_info":true},"version":"3.6.1"}
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
     KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
     KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original article title","author":"Original article author","link":"Original article link"}
@@ -103,9 +103,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -169,6 +175,8 @@
                         <div class="author">
                             <span class="name">Goblin Mike</span>
                             
+                                <span class="author-label">happy</span>
+                            
                         </div>
                         <div class="meta-info">
                             
@@ -183,7 +191,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-05-07 20:21:17</span>
+        <span class="pc">2023-05-08 00:51:55</span>
     </span>
     
     
@@ -191,7 +199,19 @@
 
     
     
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>6.4k Words</span>
+        </span>
     
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>21 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
@@ -434,8 +454,6 @@
 <h3 id="2-UC部分"><a href="#2-UC部分" class="headerlink" title="2.UC部分"></a><strong>2.UC部分</strong></h3><h4 id="2-0-本部分目标读者"><a href="#2-0-本部分目标读者" class="headerlink" title="2.0 本部分目标读者"></a>2.0 本部分目标读者</h4><p>开发人员 ，测试人员，项目经理</p>
 <p>其中前端开发人员需要参与所有用例，后端开发人员重点参考第三个用例</p>
 <h4 id="2-1-整体说明"><a href="#2-1-整体说明" class="headerlink" title="2.1 整体说明"></a>2.1 整体说明</h4><p><code>ComAna</code>是工具类产品，主要功能是进行评论区数据可视化。</p>
-<p>共三个用例，用户选择目标网站、用户输入对应编号、获取可视化数据。用例间的关系如下所示：</p>
-<p>暂时无法在飞书文档外展示此内容</p>
 <h4 id="2-2-UC正文"><a href="#2-2-UC正文" class="headerlink" title="2.2  UC正文"></a>2.2  UC正文</h4><h4 id="2-2-UC正文-1"><a href="#2-2-UC正文-1" class="headerlink" title="2.2 UC正文"></a><strong>2.2 UC正文</strong></h4><h5 id="2-2-1-UC-lt-选择目标网站-gt"><a href="#2-2-1-UC-lt-选择目标网站-gt" class="headerlink" title="2.2.1 UC_&lt;选择目标网站&gt;"></a><strong>2.2.1 UC_&lt;选择目标网站&gt;</strong></h5><h6 id="用例概述"><a href="#用例概述" class="headerlink" title="用例概述"></a><strong>用例概述</strong></h6><table>
 <thead>
 <tr>
@@ -468,10 +486,7 @@
 <td>后续根据使用热度对选项重新排序。新加入的可支持平台放到《其余可支持平台》的列表中</td>
 </tr>
 </tbody></table>
-<h6 id="界面描述（原型图）"><a href="#界面描述（原型图）" class="headerlink" title="界面描述（原型图）"></a><strong>界面描述（原型图）</strong></h6><p>静态页面</p>
-<p><img src="https://uestc.feishu.cn/space/api/box/stream/download/asynccode/?code=ZjBlMGM2NTEyMjI1YjYxNWQzNDBiY2IwYTQxMzkwMThfQTJRTTY3UWtrUXRIejRmRDBLNnJNRzlFTXNNdjFUS0VfVG9rZW46Ym94Y25md1RMQVRqdUdRbmlHNXpqMFBOOHZCXzE2ODM0NjE3MjI6MTY4MzQ2NTMyMl9WNA" alt="img"></p>
-<p>静态页面+注释</p>
-<p><img src="https://uestc.feishu.cn/space/api/box/stream/download/asynccode/?code=M2IwYzU4NzI2ZTI3ZGU1NWE1MGRhMGVkZmE4ZTc0YTBfMXVnZWJSYWdYcGp3UE00cXVtVkpTUURTMEVpZjB2eFFfVG9rZW46Ym94Y25HdFhHVmVnODBMOWtSTkQ1c1d6TlhmXzE2ODM0NjE3MjI6MTY4MzQ2NTMyMl9WNA" alt="img"></p>
+<h6 id="界面描述（原型图）"><a href="#界面描述（原型图）" class="headerlink" title="界面描述（原型图）"></a><strong>界面描述（原型图）</strong></h6><p>略</p>
 <h6 id="业务描述"><a href="#业务描述" class="headerlink" title="业务描述"></a>业务描述</h6><ol>
 <li>上方框架区域在所有网页都会展示</li>
 <li>后续若要加入广告区需要考虑界面整洁性</li>
@@ -509,13 +524,11 @@
 <td></td>
 </tr>
 </tbody></table>
-<h6 id="界面描述（原型图）-1"><a href="#界面描述（原型图）-1" class="headerlink" title="界面描述（原型图）"></a>界面描述（原型图）</h6><p>以目标平台B站为例</p>
-<p><img src="https://uestc.feishu.cn/space/api/box/stream/download/asynccode/?code=YWI3MGVhODY1N2Q0MjViYWE2MjRlZThiZTI3OGM1MjlfeUt6TDBIMUVkdmNLVVBRMnBIRWNUZGZjNDRjZVFCN0JfVG9rZW46Ym94Y25aWndWdjZCYXFSQkw1M3RaVzYyVFZlXzE2ODM0NjE3MjI6MTY4MzQ2NTMyMl9WNA" alt="img"></p>
+<h6 id="界面描述（原型图）-1"><a href="#界面描述（原型图）-1" class="headerlink" title="界面描述（原型图）"></a>界面描述（原型图）</h6><p>略</p>
 <h6 id="业务描述-1"><a href="#业务描述-1" class="headerlink" title="业务描述"></a>业务描述</h6><ol>
 <li>键入编号后，若编号无效，则弹出提示框提示重新输入</li>
 <li>用户可以通过上方链接区跳转指定链接</li>
 </ol>
-<h6 id="流程描述-1"><a href="#流程描述-1" class="headerlink" title="流程描述"></a>流程描述</h6><p>暂时无法在飞书文档外展示此内容</p>
 <h5 id="2-2-3-UC-lt-可视化数据展示-gt"><a href="#2-2-3-UC-lt-可视化数据展示-gt" class="headerlink" title="2.2.3 UC_&lt;可视化数据展示&gt;"></a>2.2.3 UC_&lt;可视化数据展示&gt;</h5><h6 id="用例概述-2"><a href="#用例概述-2" class="headerlink" title="用例概述"></a>用例概述</h6><table>
 <thead>
 <tr>
@@ -548,12 +561,11 @@
 <td>用户可以通过上方链接跳转至其他网页重新使用工具</td>
 </tr>
 </tbody></table>
-<h6 id="界面描述（原型图）-2"><a href="#界面描述（原型图）-2" class="headerlink" title="界面描述（原型图）"></a><strong>界面描述（原型图）</strong></h6><p><img src="https://uestc.feishu.cn/space/api/box/stream/download/asynccode/?code=MTdlZjA3ZWNmMGZmNzc3YzlkMTRjODRjMmM1ZDEyMGZfem9EZVZTTmFJWEY5Q3lyMEN5c0pUZ2VMNUFyTllIZEhfVG9rZW46Ym94Y25OblFYUUxLQzhqUVpZWEs2VnJMaUlzXzE2ODM0NjE3MjI6MTY4MzQ2NTMyMl9WNA" alt="img"></p>
+<h6 id="界面描述（原型图）-2"><a href="#界面描述（原型图）-2" class="headerlink" title="界面描述（原型图）"></a><strong>界面描述（原型图）</strong></h6><p>略</p>
 <h6 id="业务描述-2"><a href="#业务描述-2" class="headerlink" title="业务描述"></a><strong>业务描述</strong></h6><ol>
 <li>提供的图表随着鼠标移动产生一定变化与特效</li>
 <li>可视化所用的数据需要有一定数量限制，否则不仅会对目标服务器产生负担，还会使等待时间很长</li>
 </ol>
-<h6 id="流程描述-2"><a href="#流程描述-2" class="headerlink" title="流程描述"></a><strong>流程描述</strong></h6><p>暂时无法在飞书文档外展示此内容</p>
 <h2 id="4-回顾与反思"><a href="#4-回顾与反思" class="headerlink" title="4.回顾与反思"></a>4.回顾与反思</h2><ul>
 <li>什么是产品经理？这次请说一下你经过这么久的历练后，有什么不同的思考哦？</li>
 </ul>
@@ -578,6 +590,33 @@
             </div>
 
             
+                <div class="post-copyright-info">
+                    
+<div class="article-copyright-info-container">
+    <ul class="copyright-info-content">
+        <li class="post-title">
+            <span class="type">Post title</span>: <span class="content">2022年星辰工作室招新答题</span>
+        </li>
+        <li class="post-author">
+            <span class="type">Post author</span>: <span class="content">Goblin Mike</span>
+        </li>
+        <li class="post-time">
+            <span class="type">Create time</span>: <span class="content">2022-12-01 20:17:54</span>
+        </li>
+        <li class="post-link">
+            <span class="type">Post link</span>: <span class="content">2022/12/01/星辰工作室招新题/</span>
+        </li>
+        <li class="post-license">
+            <span class="type">Copyright notice</span>: <span class="content">All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.</span>
+        </li>
+    </ul>
+    <div class="copy-copyright-info flex-center tooltip" data-content="Copy copyright info" data-offset-y="-2px">
+        <i class="fa-solid fa-copy"></i>
+    </div>
+</div>
+
+                </div>
+            
 
             
 
@@ -587,13 +626,13 @@
                         <div class="article-prev">
                             <a class="prev"
                                rel="prev"
-                               href="/2023/05/07/Python-Notes-for-Shelly/"
+                               href="/2023/04/28/zx%E8%AF%BE%E4%B8%8A%E7%9A%84python%E5%9F%BA%E7%A1%80%E5%AE%9E%E9%AA%8C/"
                             >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item">Python讲课笔记</span>
+                                <span class="post-nav-title-item">zx课上的python基础实验</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                             </a>
@@ -625,7 +664,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BA%A7%E5%93%81%E4%BA%86%E8%A7%A3%E4%B8%8E%E5%9F%BA%E7%A1%80"><span class="nav-text">1.产品了解与基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="nav-text">1.1 产品经理的了解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E4%BA%A7%E5%93%81%E5%9F%BA%E7%A1%80"><span class="nav-text">1.2 产品基础</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BA%A7%E5%93%81%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%83%BD%E5%8A%9B%E6%B5%8B%E8%AF%95"><span class="nav-text">2.产品思维与能力测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E4%BA%A7%E5%93%81%E6%80%9D%E7%BB%B4"><span class="nav-text">2.1 产品思维</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E8%83%BD%E5%8A%9B%E6%B5%8B%E8%AF%95"><span class="nav-text">2.2 能力测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BA%A7%E5%93%81%EF%BC%9AComAna%E4%B8%BB%E6%B5%81%E7%A4%BE%E4%BA%A4%E5%B9%B3%E5%8F%B0%E8%AF%84%E8%AE%BA%E5%8F%AF%E8%A7%86%E5%8C%96%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7"><span class="nav-text">3.自己的产品：ComAna主流社交平台评论可视化分析工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%80%BB%E4%BD%93%E8%AF%B4%E6%98%8E"><span class="nav-text">1. 总体说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-0-%E6%9C%AC%E9%83%A8%E5%88%86%E7%9B%AE%E6%A0%87%E8%AF%BB%E8%80%85"><span class="nav-text">1.0 本部分目标读者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E4%BF%AE%E8%AE%A2%E5%8E%86%E5%8F%B2"><span class="nav-text">1.1 修订历史</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E9%A1%B9%E7%9B%AE%E6%A6%82%E8%BF%B0"><span class="nav-text">1.2 项目概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E5%8A%9F%E8%83%BD%E8%8C%83%E5%9B%B4"><span class="nav-text">1.3 功能范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E7%94%A8%E6%88%B7%E8%8C%83%E5%9B%B4"><span class="nav-text">1.4 用户范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-%E8%AF%8D%E6%B1%87%E8%A1%A8"><span class="nav-text">1.5 词汇表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-%E9%9D%9E%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82"><span class="nav-text">1.6 非功能需求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-%E5%85%B6%E4%BB%96%E8%AF%B4%E6%98%8E"><span class="nav-text">1.7 其他说明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-UC%E9%83%A8%E5%88%86"><span class="nav-text">2.UC部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-0-%E6%9C%AC%E9%83%A8%E5%88%86%E7%9B%AE%E6%A0%87%E8%AF%BB%E8%80%85"><span class="nav-text">2.0 本部分目标读者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E6%95%B4%E4%BD%93%E8%AF%B4%E6%98%8E"><span class="nav-text">2.1 整体说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-UC%E6%AD%A3%E6%96%87"><span class="nav-text">2.2  UC正文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-UC%E6%AD%A3%E6%96%87-1"><span class="nav-text">2.2 UC正文</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-1-UC-lt-%E9%80%89%E6%8B%A9%E7%9B%AE%E6%A0%87%E7%BD%91%E7%AB%99-gt"><span class="nav-text">2.2.1 UC_&lt;选择目标网站&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B%E6%A6%82%E8%BF%B0"><span class="nav-text">用例概述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E6%8F%8F%E8%BF%B0%EF%BC%88%E5%8E%9F%E5%9E%8B%E5%9B%BE%EF%BC%89"><span class="nav-text">界面描述（原型图）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E6%8F%8F%E8%BF%B0"><span class="nav-text">业务描述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8F%8F%E8%BF%B0"><span class="nav-text">流程描述</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-2-UC-lt-%E8%BE%93%E5%85%A5%E5%AF%B9%E5%BA%94%E7%BC%96%E5%8F%B7-gt"><span class="nav-text">2.2.2 UC_&lt;输入对应编号&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B%E6%A6%82%E8%BF%B0-1"><span class="nav-text">用例概述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E6%8F%8F%E8%BF%B0%EF%BC%88%E5%8E%9F%E5%9E%8B%E5%9B%BE%EF%BC%89-1"><span class="nav-text">界面描述（原型图）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E6%8F%8F%E8%BF%B0-1"><span class="nav-text">业务描述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8F%8F%E8%BF%B0-1"><span class="nav-text">流程描述</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-3-UC-lt-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%95%B0%E6%8D%AE%E5%B1%95%E7%A4%BA-gt"><span class="nav-text">2.2.3 UC_&lt;可视化数据展示&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B%E6%A6%82%E8%BF%B0-2"><span class="nav-text">用例概述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E6%8F%8F%E8%BF%B0%EF%BC%88%E5%8E%9F%E5%9E%8B%E5%9B%BE%EF%BC%89-2"><span class="nav-text">界面描述（原型图）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E6%8F%8F%E8%BF%B0-2"><span class="nav-text">业务描述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8F%8F%E8%BF%B0-2"><span class="nav-text">流程描述</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%9B%9E%E9%A1%BE%E4%B8%8E%E5%8F%8D%E6%80%9D"><span class="nav-text">4.回顾与反思</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BA%A7%E5%93%81%E4%BA%86%E8%A7%A3%E4%B8%8E%E5%9F%BA%E7%A1%80"><span class="nav-text">1.产品了解与基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="nav-text">1.1 产品经理的了解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E4%BA%A7%E5%93%81%E5%9F%BA%E7%A1%80"><span class="nav-text">1.2 产品基础</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%BA%A7%E5%93%81%E6%80%9D%E7%BB%B4%E4%B8%8E%E8%83%BD%E5%8A%9B%E6%B5%8B%E8%AF%95"><span class="nav-text">2.产品思维与能力测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E4%BA%A7%E5%93%81%E6%80%9D%E7%BB%B4"><span class="nav-text">2.1 产品思维</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-%E8%83%BD%E5%8A%9B%E6%B5%8B%E8%AF%95"><span class="nav-text">2.2 能力测试</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BA%A7%E5%93%81%EF%BC%9AComAna%E4%B8%BB%E6%B5%81%E7%A4%BE%E4%BA%A4%E5%B9%B3%E5%8F%B0%E8%AF%84%E8%AE%BA%E5%8F%AF%E8%A7%86%E5%8C%96%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7"><span class="nav-text">3.自己的产品：ComAna主流社交平台评论可视化分析工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%80%BB%E4%BD%93%E8%AF%B4%E6%98%8E"><span class="nav-text">1. 总体说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-0-%E6%9C%AC%E9%83%A8%E5%88%86%E7%9B%AE%E6%A0%87%E8%AF%BB%E8%80%85"><span class="nav-text">1.0 本部分目标读者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E4%BF%AE%E8%AE%A2%E5%8E%86%E5%8F%B2"><span class="nav-text">1.1 修订历史</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E9%A1%B9%E7%9B%AE%E6%A6%82%E8%BF%B0"><span class="nav-text">1.2 项目概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E5%8A%9F%E8%83%BD%E8%8C%83%E5%9B%B4"><span class="nav-text">1.3 功能范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E7%94%A8%E6%88%B7%E8%8C%83%E5%9B%B4"><span class="nav-text">1.4 用户范围</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-%E8%AF%8D%E6%B1%87%E8%A1%A8"><span class="nav-text">1.5 词汇表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-6-%E9%9D%9E%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82"><span class="nav-text">1.6 非功能需求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-7-%E5%85%B6%E4%BB%96%E8%AF%B4%E6%98%8E"><span class="nav-text">1.7 其他说明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-UC%E9%83%A8%E5%88%86"><span class="nav-text">2.UC部分</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-0-%E6%9C%AC%E9%83%A8%E5%88%86%E7%9B%AE%E6%A0%87%E8%AF%BB%E8%80%85"><span class="nav-text">2.0 本部分目标读者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-%E6%95%B4%E4%BD%93%E8%AF%B4%E6%98%8E"><span class="nav-text">2.1 整体说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-UC%E6%AD%A3%E6%96%87"><span class="nav-text">2.2  UC正文</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-UC%E6%AD%A3%E6%96%87-1"><span class="nav-text">2.2 UC正文</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-1-UC-lt-%E9%80%89%E6%8B%A9%E7%9B%AE%E6%A0%87%E7%BD%91%E7%AB%99-gt"><span class="nav-text">2.2.1 UC_&lt;选择目标网站&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B%E6%A6%82%E8%BF%B0"><span class="nav-text">用例概述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E6%8F%8F%E8%BF%B0%EF%BC%88%E5%8E%9F%E5%9E%8B%E5%9B%BE%EF%BC%89"><span class="nav-text">界面描述（原型图）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E6%8F%8F%E8%BF%B0"><span class="nav-text">业务描述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E6%8F%8F%E8%BF%B0"><span class="nav-text">流程描述</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-2-UC-lt-%E8%BE%93%E5%85%A5%E5%AF%B9%E5%BA%94%E7%BC%96%E5%8F%B7-gt"><span class="nav-text">2.2.2 UC_&lt;输入对应编号&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B%E6%A6%82%E8%BF%B0-1"><span class="nav-text">用例概述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E6%8F%8F%E8%BF%B0%EF%BC%88%E5%8E%9F%E5%9E%8B%E5%9B%BE%EF%BC%89-1"><span class="nav-text">界面描述（原型图）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E6%8F%8F%E8%BF%B0-1"><span class="nav-text">业务描述</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-2-3-UC-lt-%E5%8F%AF%E8%A7%86%E5%8C%96%E6%95%B0%E6%8D%AE%E5%B1%95%E7%A4%BA-gt"><span class="nav-text">2.2.3 UC_&lt;可视化数据展示&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%94%A8%E4%BE%8B%E6%A6%82%E8%BF%B0-2"><span class="nav-text">用例概述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%95%8C%E9%9D%A2%E6%8F%8F%E8%BF%B0%EF%BC%88%E5%8E%9F%E5%9E%8B%E5%9B%BE%EF%BC%89-2"><span class="nav-text">界面描述（原型图）</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E6%8F%8F%E8%BF%B0-2"><span class="nav-text">业务描述</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%9B%9E%E9%A1%BE%E4%B8%8E%E5%8F%8D%E6%80%9D"><span class="nav-text">4.回顾与反思</span></a></li></ol>
     </div>
 </div>
 
@@ -654,6 +693,17 @@
             
         </div>
         
+            <script async 
+                    src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    Visitor Count&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                
+                
+                    Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                
+            </div>
+        
         <div class="theme-info info-item">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.6.1</a>
         </div>
@@ -661,7 +711,11 @@
         
             <div class="deploy-info info-item">
                 
+                    <a target="_blank" rel="nofollow" href="https://github.com/MikeGoblin/mikegoblin.github.io">
+                
                     This site is provided with deployment services by <span class="tooltip" data-content="GitHub Pages"><img src="/images/deploy-provider/github.png"></span>
+                
+                    </a>
                 
             </div>
         
@@ -735,6 +789,35 @@
 
 
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
 </main>
 
@@ -753,6 +836,10 @@
 
 
 
+
+
+    
+<script src="/js/local-search.js"></script>
 
 
 
