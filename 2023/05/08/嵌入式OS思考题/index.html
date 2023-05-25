@@ -191,7 +191,7 @@
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-05-17 20:58:12</span>
+        <span class="pc">2023-05-18 21:06:51</span>
     </span>
     
     
@@ -200,12 +200,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>7.3k Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>7.4k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>25 Mins</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>26 Mins</span>
         </span>
     
     
@@ -370,7 +370,7 @@
 <ol start="2">
 <li>Bootloader引导</li>
 </ol>
-<p>Bootloader引导是指在嵌入式设备上运行一个小型的引导程序，用于加载操作系统内核和其他系统组件。Bootloader引导的优点是灵活性高，可以进行系统配置和更新，也可以进行系统恢复和修复，有较高的可靠性。缺点是启动速度相对较慢，系统资源占用相对较多。</p>
+<p>Bootloader引导是指在嵌入式设备上运行一个小型的引导程序，用于加载操作系统内核和其他系统组件。Bootloader引导的优点是灵活性高，可以进行系统配置和更新，也可以进行系统恢复和修复，有较高的可靠性。缺点是启动速度相对较慢。</p>
 <blockquote>
 <p>前后台系统在轮询系统的基础上做了什么改变？其运行方式是什么？它适用于什么嵌入式应用？</p>
 </blockquote>
@@ -465,6 +465,20 @@
 <blockquote>
 <p>当ARM9 S3C2410产生复位异常时，软件上需要做什么处理？请结合代码加以描述。</p>
 </blockquote>
+<p>当ARM9 S3C2410产生复位异常时，软件需要进行以下处理：</p>
+<ol>
+<li>初始化堆栈指针，将堆栈指针设为系统栈顶。</li>
+<li>初始化全局变量，将全局变量的值设为零或默认值。</li>
+<li>初始化外设，将外设的寄存器恢复到默认值。</li>
+<li>初始化中断向量表，将中断向量表的地址设为默认值。</li>
+</ol>
+<p>以下是一段示例代码，用于处理ARM9 S3C2410的复位异常：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 复位异常处理函数 */</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">reset_handler</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">/* 初始化堆栈指针 */</span></span><br><span class="line">    __asm(<span class="string">&quot;ldr sp, =0x30000000&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 初始化全局变量 */</span></span><br><span class="line">    <span class="keyword">extern</span> <span class="type">int</span> global_var;</span><br><span class="line">    global_var = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 初始化外设 */</span></span><br><span class="line">    init_peripherals();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 初始化中断向量表 */</span></span><br><span class="line">    init_interrupt_vectors();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* 跳转到主函数 */</span></span><br><span class="line">    main();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
 <h4 id="第三组"><a href="#第三组" class="headerlink" title="第三组"></a>第三组</h4><blockquote>
 <p>aCoral优先级通过什么方式定义？aCoral优先级表示与uC&#x2F;OSII有什么不同？</p>
 </blockquote>
@@ -620,10 +634,10 @@
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/2023/05/07/2023-05-Todo/"
+                               href="/2023/05/07/Python-Notes-for-Shelly/"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Todo List(2023.05)</span>
+                                <span class="post-nav-title-item">讲Python</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                                 <span class="right arrow-icon flex-center">

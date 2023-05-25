@@ -9,7 +9,7 @@
     
     <title>
         
-            操作系统原理课后习题 |
+            OS原理与实践课后习题 |
         
         Goblin&#39;s Blog
     </title>
@@ -163,7 +163,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">操作系统原理课后习题</span>
+                <span class="title-hover-animation">OS原理与实践课后习题</span>
             </div>
 
             
@@ -185,13 +185,13 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-04-29 01:45:59</span>
-        <span class="mobile">2023-04-29 01:45</span>
+        <span class="pc">2023-05-25 01:45:59</span>
+        <span class="mobile">2023-05-25 01:45</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-05-08 02:13:27</span>
+        <span class="pc">2023-05-25 15:38:15</span>
     </span>
     
     
@@ -200,12 +200,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>7.7k Words</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>9.2k Words</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>27 Mins</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>32 Mins</span>
         </span>
     
     
@@ -776,6 +776,82 @@
 <li><p>打印机空闲，输出进程从请求打印队列的队首取出一张请求打印表，根据表中的要求将要打印的数据，从输出井传送到内存缓冲区，再由打印机进行打印。</p>
 </li>
 </ol>
+<h2 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h2><blockquote>
+<p>6.何谓文件逻辑结构？何谓文件物理结构？</p>
+</blockquote>
+<p><strong>逻辑结构</strong>：文件在用户面前所呈现的组织形式。</p>
+<p><strong>物理结构</strong>：文件在文件存储器上的存储组织形式。</p>
+<blockquote>
+<p>8.如何提高对变长记录顺序文件的检索速度？</p>
+</blockquote>
+<p>为了提高对变长记录顺序文件的检索速度，可为其建立一张索引表，以主文件中每条记录的长度及指向对应记录的指针（即该记录在逻辑地址空间的首址）作为相应每个表项的内容。由于索引表本身是一个定长记录的顺序文件，若将其按记录键排序，则可以实现对主文件的方便快速的直接存取。需要指出的是，如果文件较大，应通过建立分组多级索引以进一步提高检索效率。</p>
+<blockquote>
+<p>12.试说明对索引文件和索引顺序文件的检索方法。</p>
+</blockquote>
+<ul>
+<li><p>在对索引文件进行检索时，首先是根据用户（程序）提供的关键字，并利用折半查找法去检索索引表，从中找到相应的事项；再利用该表项中给出的指向记录的指针值，去访问所需的记录。</p>
+</li>
+<li><p>在对索引顺序文件进行检索时，首先也是利用用户（程序）所提供的关键字以及某种查找算法去检索索引表，找到该记录所在记录组中第一个记录的表项，从中得到该记录组第一个记录在主文件中的位置；然后，再利用顺序查找法去查找主文件，从中找到所要求的记录。</p>
+</li>
+</ul>
+<blockquote>
+<p>22.什么是主父目录和链接父目录？如何利用符号链实现共享？</p>
+</blockquote>
+<p><strong>主父目录和链接父目录</strong>：利用符号链接实现文件共享的基本思想，是允许一个文件或子目录有多个父目录，但其中仅有一个作为主父目录，其他的几个父目录都是通过符号链接方式与之相链接的（简称链接父目录）。</p>
+<p><strong>利用符号链实现共享</strong>：为使B能共享C的一个文件F，可以由系统创建一个LINK类型的新文件，也取名为F。并将F写入B的目录中，以实现B的目录与文件F的链接；在新文件中只包含被创文件F的路径名。这样的链接方法被称为符号链接。新文件中的路径名，则只被看作是符号链。当B要访问被链接的文件F且正要读LINK类新文件时，将被OS截获，OS根据新文件中的路径名去读该文件，于是就实现了用户B对文件F的共享。</p>
+<h2 id="第八章"><a href="#第八章" class="headerlink" title="第八章"></a>第八章</h2><blockquote>
+<p>11.在UNIX中，如果一个盘块的大小为1KB，每个盘块号占4个字节，即每个盘块可以放256个地址，请转换下列文件的字节偏移量为物理地址：</p>
+<p>（1）9999；（2）18000；（3）420000</p>
+</blockquote>
+<ol>
+<li><p><code>9999 / 1024 = 9 ... 783</code>，则逻辑块号为9，直接索引第9个地址得到物理块号，块内偏移地址为783。</p>
+</li>
+<li><p><code>18000 / 1024 = 17 ... 592</code>， 则逻辑块号为<code>10 &lt; 17 &lt; 10 + 256</code>，通过一次间接索引在第10个地址可得到物理块号，块内偏移地址为592。</p>
+</li>
+<li><p><code>420000 / 1024 = 410 ... 160</code>， 则逻辑块号为<code>10 + 256 &lt; 410</code>，通过二次间接索引在第11个地址可得到一次间址，再由此得到二次间址，再找到物理块号，其块内偏移地址160。</p>
+</li>
+</ol>
+<blockquote>
+<p>12.什么是索引文件？为什么要引入多级索引？</p>
+</blockquote>
+<ul>
+<li><p><strong>索引文件</strong>：一个文件的信息存放在若干不连续物理块中，系统为每个文件建立一个索引一个索引表就是磁盘块地址数组,其中第i个条目指向文件的第i块表，并将这些块的块号存放在索引表中</p>
+</li>
+<li><p><strong>引入多级索引</strong>：索引是为了用户访问速度更快，多级索引结构可以有效管理索引文件，可以根据用户访问情况多级处理。</p>
+</li>
+</ul>
+<blockquote>
+<p>14.计算机系统利用下图的位示图来管理空闲盘块，盘块大小为1KB，现要为某文件分配两个盘块，试说明盘块的具体分配过程。</p>
+</blockquote>
+<p>盘块的具体分配过程如下：</p>
+<ol>
+<li>从位示图中顺序扫描空闲盘块，发现第一个为0的二进制数在行为<code>i = 3</code>，列为<code>j = 3</code>处；</li>
+<li>将上面找到的行列号转换为对应的盘块号：<code>b = (3 - 1) * 16 + 3 = 35</code>;</li>
+<li>修改位示图，把<code>map[3, 3]</code>处设置为1，并将盘块分配给文件；</li>
+</ol>
+<p>重复上述步骤分配第二个空闲盘块，即<code>map[4, 7]</code>，算出对应的盘块号为55，设置<code>map[i, j] = 1</code>并将盘块分配出去。</p>
+<blockquote>
+<p>15.某OS的磁盘文件空间共有500块，若用字长为32位的位示图管理磁盘，试问：</p>
+<p>（1）位示图需要多少字？</p>
+<p>（2）第<code>i</code>字第<code>j</code>位对应的块号是多少？</p>
+<p>（3）给出申请&#x2F;归还一块的工作流程。</p>
+</blockquote>
+<ol>
+<li>位示图占用字数为<code>500 / 32 = 16</code>(向上取整)个字。</li>
+<li>第i字第j位对应的块号为：<code>N = 32 * i + j</code>。</li>
+<li>申请时自上至下、自左至右扫描位示图跳过为1的位，找到第一个遇到的<code>0</code>位，根据它是第i字第j位算出对应块号，并分配出去。归还时已知块号，<code>块号/32</code>算出第<code>i</code>字第<code>j</code>位并把位示图相应位清<code>0</code>。</li>
+</ol>
+<blockquote>
+<p>16.对空闲磁盘空间的管理常采用哪几种分配方式？在UNIX系统中是采用何种分配方式？</p>
+</blockquote>
+<p>空闲磁盘空间的管理常采用：</p>
+<ul>
+<li>空闲表法</li>
+<li>空闲链表法</li>
+<li>位示图法</li>
+<li>成组链接法。</li>
+</ul>
+<p>UNIX系统采用的是成组链接法。</p>
 
             </div>
 
@@ -785,16 +861,16 @@
 <div class="article-copyright-info-container">
     <ul class="copyright-info-content">
         <li class="post-title">
-            <span class="type">Post title</span>: <span class="content">操作系统原理课后习题</span>
+            <span class="type">Post title</span>: <span class="content">OS原理与实践课后习题</span>
         </li>
         <li class="post-author">
             <span class="type">Post author</span>: <span class="content">Goblin Mike</span>
         </li>
         <li class="post-time">
-            <span class="type">Create time</span>: <span class="content">2023-04-29 01:45:59</span>
+            <span class="type">Create time</span>: <span class="content">2023-05-25 01:45:59</span>
         </li>
         <li class="post-link">
-            <span class="type">Post link</span>: <span class="content">2023/04/29/操作系统原理课后习题/</span>
+            <span class="type">Post link</span>: <span class="content">2023/05/25/操作系统原理课后习题/</span>
         </li>
         <li class="post-license">
             <span class="type">Copyright notice</span>: <span class="content">All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.</span>
@@ -813,29 +889,14 @@
             
                 <div class="article-nav">
                     
-                        <div class="article-prev">
-                            <a class="prev"
-                               rel="prev"
-                               href="/2023/05/07/Python-Notes-for-Shelly/"
-                            >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                                <span class="title flex-center">
-                                <span class="post-nav-title-item">讲Python</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                            </a>
-                        </div>
-                    
                     
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/2023/04/28/zx%E8%AF%BE%E4%B8%8A%E7%9A%84python%E5%9F%BA%E7%A1%80%E5%AE%9E%E9%AA%8C/"
+                               href="/2023/05/18/EOS%E5%A4%8D%E4%B9%A0%E6%A2%B3%E7%90%86/"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">zx课上的python基础实验</span>
+                                <span class="post-nav-title-item">EOS复习梳理</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -854,7 +915,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="nav-text">第一章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0"><span class="nav-text">第二章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0"><span class="nav-text">第三章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0"><span class="nav-text">第四章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0"><span class="nav-text">第五章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0"><span class="nav-text">第六章</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="nav-text">第一章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0"><span class="nav-text">第二章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0"><span class="nav-text">第三章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0"><span class="nav-text">第四章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0"><span class="nav-text">第五章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0"><span class="nav-text">第六章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0"><span class="nav-text">第七章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0"><span class="nav-text">第八章</span></a></li></ol>
     </div>
 </div>
 
